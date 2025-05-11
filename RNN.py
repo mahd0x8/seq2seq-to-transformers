@@ -3,8 +3,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import SimpleRNN, Dense, Dropout, TimeDistributed, Input
 
 def RNN(X_train):
-    # Build the RNN model
-    """model = Sequential([
+    # Building the RNN model
+    model = Sequential([
         Input(shape=(X_train.shape[1], 1)),
         
         # First RNN layer (return sequences to stack another RNN)
@@ -17,16 +17,9 @@ def RNN(X_train):
         
         # TimeDistributed Dense layer to output 1 value per timestep
         TimeDistributed(Dense(1))
-    ])"""
-    
-    # Define model
-    model = Sequential([
-        Input(shape=(8, 1)),
-        SimpleRNN(64, return_sequences=True),
-        TimeDistributed(Dense(1))
     ])
 
-    # Compile
+    # Compiling model
     model.compile(optimizer='adam', loss='mse')
     
     return model
